@@ -53,7 +53,7 @@ while Tip_Calculator:
 #https://www.adamsmith.haus/python/answers/how-to-create-a-dictionary-from-two-lists-in-python
     user_input_dict = dict(zip(user_input_names, user_inputs_saved))
       
-# Calculate the total check   
+# Calculate the total check with tip and tax. 
     def total_check():
             return ((1+(((user_input_dict['how_much_tip'])+(user_input_dict['how_much_tax']))/100))*(user_input_dict['subtotal_check']))
     
