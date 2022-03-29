@@ -11,8 +11,6 @@ while Tip_Calculator:
 #Create a list of the user input user_input_dict
     user_input_user_input_dict = [ 
         'What was the total check? \n Example: Enter 100.21 for $100.21 ',
-        'What % sales tax was included in the check? \n Example: Enter 10 for 10% ',
-        'What % mandatory tip was included in the check? \n Example: Enter 10 for 10% ',
         'How many guests will be splitting the check? \n Example: Enter 10 for ten guests. ',
         'How much tip would you like to add? \n Example: Enter 10 for 10% ',
         'How much sales tax would you like to add? \n Example: Enter 10 for 10% '
@@ -21,8 +19,6 @@ while Tip_Calculator:
 #Create a list of the user input question names
     user_input_names = [
                 'subtotal_check',
-                'included_tax',
-                'included_tip',
                 'number_guests_split',
                 'how_much_tip',
                 'how_much_tax']
@@ -56,14 +52,10 @@ while Tip_Calculator:
 # Create new dictionary containing the user input name : value of user inputs
 #https://www.adamsmith.haus/python/answers/how-to-create-a-dictionary-from-two-lists-in-python
     user_input_dict = dict(zip(user_input_names, user_inputs_saved))
-   
-
-# Calculate adjust subtotal check netting out the included tip and tax
-    adjusted_subtotal_check = ((user_input_dict['subtotal_check']))/(1+((user_input_dict['included_tip']) + (user_input_dict['included_tax'])/100))
-    
+      
 # Calculate the total check   
     def total_check():
-            return ((1+(((user_input_dict['how_much_tip'])+(user_input_dict['included_tax'])+(user_input_dict['how_much_tax'])+(user_input_dict['included_tip']))/100))*adjusted_subtotal_check)
+            return ((1+(((user_input_dict['how_much_tip'])+(user_input_dict['how_much_tax']))/100))*(user_input_dict['subtotal_check']))
     
 # calculate the split  
     def split_check():
